@@ -1,0 +1,56 @@
+@import "../../scss/variables";
+
+.complete-block, .complete-block-no-header {
+	margin-bottom: 20px;
+	width: 100%;
+
+	.header {
+		height: 60px;
+		text-align: center;
+		line-height: 60px;
+	}
+
+	.header-text {
+		text-align: left;
+		padding: 10px;
+		padding-left: 10px;
+		padding-right: 10px;
+		font-weight: bold;
+		font-size: 18px;
+	}
+
+	.wrapper-header-img {
+		img {
+			width: 100%;
+		}
+	}
+
+	.wrapper-body {
+		border-left: 1px solid $color_black;
+		border-bottom: 1px solid $color_black;
+		border-right: 1px solid $color_black;
+		min-height: 160px;
+		width: 100%;
+		padding-top: 10px;
+		padding-bottom: 10px;
+
+		.body-title {
+			font-size: 19px;
+			margin-left: 10px;
+			margin-right: 10px;
+		}
+
+		.body-text {
+			margin: 10px;
+		}
+	}
+
+}
+
+.complete-block-no-header {
+
+	.wrapper-body {
+		border: 1px solid $color_black;
+	}
+
+}

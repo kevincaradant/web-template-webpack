@@ -1,0 +1,31 @@
+
+<!-- image header, title, body text -->
+<complete-block
+header-img="./lib/img/image.jpg"
+body-title="{{ 'BODY_TITLE' | translate }}"
+body-text="{{ 'LOREM_1' | translate }}"></complete-block>
+
+<!-- text header with background color and text color, title, body text -->
+<complete-block
+header-title="Titre"
+header-color="color-white"
+header-background-color="background-color-black"
+body-title="{{ 'BODY_TITLE' | translate }}"
+body-text="{{ 'LOREM_1' | translate }}"></complete-block>
+
+<!-- picto header with background color and text color, title, body text -->
+<complete-block
+header-picto="fa fa-github fa-2x"
+header-background-color="background-color-black"
+header-color="color-white"
+body-title="{{ 'BODY_TITLE' | translate }}"
+body-text="{{ 'LOREM_1' | translate }}"></complete-block>
+
+<!-- no header, title, body text -->
+<complete-block
+body-title="{{ 'BODY_TITLE' | translate }}"
+body-text="{{ 'LOREM_1' | translate }}"></complete-block>
+
+<!-- no header, no title, body text -->
+<complete-block
+body-text="{{ 'LOREM_1' | translate }}"></complete-block>

@@ -1,0 +1,8 @@
+{
+	"PAGE_1"    : "Première page",
+	"OBSERVABLE": "Example d'Observable, un scope pour deux controlleurs",
+	"PAGE_2"    : "Deuxième page",
+	"PAGE_3"    : "Troisième page",
+	"BODY_TITLE": "Salut",
+	"LOREM_1"   : "Généralement, on utilise un texte en faux latin (le texte ne veut rien dire, il a été modifié), le Lorem ipsum ou Lipsum, qui permet donc de faire office de texte d'attente. L'avantage de le mettre en latin est que l'opérateur sait au premier coup d'oeil que la page contenant ces lignes n'est pas valide, et surtout l'attention du client n'est pas dérangée par le contenu, il demeure concentré seulement sur l'aspect graphique."
+}
