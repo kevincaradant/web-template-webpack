@@ -7,7 +7,12 @@ os = require('os'),
 ImageminPlugin = require('imagemin-webpack-plugin').default,
 OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin'),
 webpackUglifyJsPlugin = require('webpack-uglify-js-plugin'),
-ProgressBarPlugin = require('progress-bar-webpack-plugin'); // To be delete when webpack will accept the flag --progress in the devserver and not only in CMD
+ProgressBarPlugin = require('progress-bar-webpack-plugin'), // To be delete when webpack will accept the flag --progress in the devserver and not only in CMD
+autoprefixer = require('autoprefixer'),
+ExtractTextPlugin = require("extract-text-webpack-plugin");
+
+let extractCSS = new ExtractTextPlugin('[name]-[hash].css');
+let extractLESS = new ExtractTextPlugin('[name]-[hash].less');
 
 var cf = {
 	entry: path.join(libPath, 'index.js'),
@@ -23,12 +28,16 @@ var cf = {
 				loader: 'file?name=lib/templates/[name]-[hash].html'
 			},
 			{
-				test: /\.scss$/,
-				loaders: ['style', 'css', 'sass', 'resolve-url', 'sass?sourceMap']
+				test: /\.css$/,
+				loader:  extractCSS.extract(["style-loader", "css-loader", "postcss-loader"])
 			},
 			{
-				test: /\.css$/,
-				loaders: ["style-loader", "css-loader"]
+				test: /\.scss$/,
+				loader: extractCSS.extract(['css', 'resolve-url', 'sass?sourceMap'])
+			},
+			{
+				test: /\.less$/,
+				loader: extractLESS.extract(['css','less', 'resolve-url', 'less?sourceMap'])
 			},
 			{
 				test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
@@ -59,6 +68,10 @@ var cf = {
 		port: 3001,
 		compress:true,
 		colors:true
+	},
+
+	postcss: function () {
+		return [autoprefixer];
 	},
 
 	plugins: [
@@ -109,6 +122,9 @@ var cf = {
 			}
 		}),
 		new webpack.optimize.AggressiveMergingPlugin(),
+
+		extractCSS,
+		extractLESS,
 
 		new ProgressBarPlugin({format: '  build [:bar] ' + (':percent') + ' (:elapsed seconds)'})
 	]

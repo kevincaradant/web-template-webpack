@@ -27,7 +27,10 @@ var cf = {
 			loaders: ['style', 'css', 'sass', 'resolve-url', 'sass?sourceMap']
 		},{
 			test: /\.css$/,
-			loaders: ["style-loader", "css-loader"],
+			loaders: ["style-loader", "css-loader"]
+		},{
+			test: /\.less$/,
+			loaders: ['css','less', 'resolve-url', 'less?sourceMap']
 		},{
 			test: /\.js$/,
 			exclude: /(node_modules)/,
