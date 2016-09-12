@@ -25,7 +25,7 @@ var cf = {
 		loaders: [
 			{
 				test: /\.html$/,
-				loader: 'file?name=lib/templates/[name]-[hash].html'
+				loader: 'ngtemplate!html'
 			},
 			{
 				test: /\.css$/,
@@ -80,6 +80,13 @@ var cf = {
 			inject: true,
 			filename: 'index.html',
 			title: 'MY_CUSTOM_APP',
+			minify: {
+				collapseWhitespace: true,
+				removeComments: true,
+				removeRedundantAttributes: true,
+				removeScriptTypeAttributes: true,
+				removeStyleLinkTypeAttributes: true
+			},
 			template: path.join(libPath, 'index.html')
 		}),
 

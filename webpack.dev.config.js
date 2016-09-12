@@ -20,7 +20,10 @@ var cf = {
 			test: /\.json$/,
 			loaders: ["raw-loader"]
 		},{
-			test: /\.(html|jpe?g|gif|png|svg|woff|woff2|ttf|eot|wav|mp3)$/,
+			test: /\.html$/,
+			loader: 'ngtemplate!html'
+		},{
+			test: /\.(jpe?g|gif|png|svg|woff|woff2|ttf|eot|wav|mp3)$/,
 			loader: 'file' // inline base64 URLs for <=10kb images, direct URLs for the rest
 		},{
 			test: /\.scss$/,
