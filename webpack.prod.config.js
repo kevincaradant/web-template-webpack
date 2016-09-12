@@ -28,16 +28,12 @@ var cf = {
 				loader: 'ngtemplate!html'
 			},
 			{
-				test: /\.css$/,
-				loader:  extractCSS.extract(["style-loader", "css-loader", "postcss-loader"])
-			},
-			{
-				test: /\.scss$/,
-				loader: extractCSS.extract(['css', 'resolve-url', 'sass?sourceMap'])
-			},
-			{
 				test: /\.less$/,
-				loader: extractLESS.extract(['css','less', 'resolve-url', 'less?sourceMap'])
+				loader: extractCSS.extract(['css', 'less', 'resolve-url', 'postcss-loader'])
+			},
+			{
+			 test: /\.scss$|\.css$/,
+				loader: extractCSS.extract(['css-loader', 'resolve-url', 'postcss-loader', 'sass?sourceMap'])
 			},
 			{
 				test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
@@ -131,7 +127,6 @@ var cf = {
 		new webpack.optimize.AggressiveMergingPlugin(),
 
 		extractCSS,
-		extractLESS,
 
 		new ProgressBarPlugin({format: '  build [:bar] ' + (':percent') + ' (:elapsed seconds)'})
 	]

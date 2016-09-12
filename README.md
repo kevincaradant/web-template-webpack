@@ -1,3 +1,5 @@
+#WORK IN PROGRESS :)
+
 # Why ?
 If you often create new web projects, you know how long it can be to start from scratch.
 You just need to kick start your project ? This repo has been made for you !
@@ -15,7 +17,7 @@ You just need to kick start your project ? This repo has been made for you !
 - **Unit** test samples
 - **Coverage** to know if your code is tested enough
 - **Sass** linting, sourcemaps minify and concat
-- **Livereload** and - **Hot Reloading** to work without pressing F5 every second and to refresh only the module modified
+- **Livereload** and - **Hot Reloading** to work without pressing F5 every second and to refresh only the stylesheet modified
 
 ## Main librairies into the project :
 - Bootstrap
@@ -29,14 +31,16 @@ You just need to kick start your project ? This repo has been made for you !
 	- Angular-ui-router
 - Rx
 
-# angular1.5-ES6-material-webpack-boilerplate
-A simple AngularJS 1.5 boilerplate using ES6 and components, material design and webpack
+# webTemplate-webpack
+A simple AngularJS 1.5 boilerplate using ES6 and components, and webpack
 
 ## Install & run
 ```
 $ npm install --no-optional
 $ npm run dev
 See the browser on : `http://localhost:3001`
+Or
+See the browser on : `http://localhost:3001/webpack-dev-server/`
 
 NB: If you want a website in https:
 1- change the webpack.dev.config.js file and edit 'https: false' to 'https: true'

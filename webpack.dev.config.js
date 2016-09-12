@@ -26,14 +26,11 @@ var cf = {
 			test: /\.(jpe?g|gif|png|svg|woff|woff2|ttf|eot|wav|mp3)$/,
 			loader: 'file' // inline base64 URLs for <=10kb images, direct URLs for the rest
 		},{
-			test: /\.scss$/,
-			loaders: ['style', 'css', 'sass', 'resolve-url', 'sass?sourceMap']
-		},{
-			test: /\.css$/,
-			loaders: ["style-loader", "css-loader"]
-		},{
 			test: /\.less$/,
-			loaders: ['css','less', 'resolve-url', 'less?sourceMap']
+			loaders: ['style', 'css', 'less?sourceMap', 'resolve-url', 'postcss-loader']
+		},{
+			 test: /\.scss$|\.css$/,
+			loaders: ['style', 'css-loader', 'resolve-url', 'postcss-loader', 'sass?sourceMap']
 		},{
 			test: /\.js$/,
 			exclude: /(node_modules)/,
