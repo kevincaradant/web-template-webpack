@@ -39,7 +39,7 @@ A simple AngularJS 1.5 boilerplate using ES6 and components, and webpack
 $ npm install --no-optional
 $ npm run dev
 See the browser on : `http://localhost:3001`
-Or
+Or if you prefer to have the App Ready / Compiling status bar at the top
 See the browser on : `http://localhost:3001/webpack-dev-server/`
 
 NB: If you want a website in https:

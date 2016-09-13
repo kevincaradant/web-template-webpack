@@ -1,5 +1,5 @@
 var path = require('path'),
-webpack = require("webpack"),
+webpack = require('webpack'),
 libPath = path.join(__dirname, 'lib'),
 HtmlWebpackPlugin = require('html-webpack-plugin'),
 ProgressBarPlugin = require('progress-bar-webpack-plugin'), // To be delete when webpack will accept the flag --progress in the devserver and not only in CMD
@@ -29,12 +29,12 @@ var cf = {
 			test: /\.less$/,
 			loaders: ['style', 'css', 'less?sourceMap', 'resolve-url', 'postcss-loader']
 		},{
-			 test: /\.scss$|\.css$/,
+			test: /\.scss$|\.css$/,
 			loaders: ['style', 'css-loader', 'resolve-url', 'postcss-loader', 'sass?sourceMap']
 		},{
 			test: /\.js$/,
 			exclude: /(node_modules)/,
-			loaders: ['ng-annotate?add=true', 'babel-loader', 'eslint-loader']
+			loaders: ['ng-annotate?add=true', 'babel', 'eslint-loader']
 		}]
 	},
 
@@ -53,7 +53,6 @@ var cf = {
 	},
 
 	plugins: [
-		// HtmlWebpackPlugin: Simplifies creation of HTML files to serve your webpack bundles : https://www.npmjs.com/package/html-webpack-plugin
 		new HtmlWebpackPlugin({
 			inject: true,
 			filename: 'index.html',
@@ -61,10 +60,8 @@ var cf = {
 			template: path.join(libPath, 'index.html')
 		}),
 
-		// OccurenceOrderPlugin: Assign the module and chunk ids by occurrence count. : https://webpack.github.io/docs/list-of-plugins.html#occurenceorderplugin
 		new webpack.optimize.OccurenceOrderPlugin(),
 
-		// Deduplication: find duplicate dependencies & prevents duplicate inclusion : https://github.com/webpack/docs/wiki/optimization#deduplication
 		new webpack.optimize.DedupePlugin(),
 
 		new webpack.HotModuleReplacementPlugin(),

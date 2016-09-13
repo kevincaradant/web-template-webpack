@@ -1,5 +1,5 @@
 var path = require('path'),
-webpack = require("webpack"),
+webpack = require('webpack'),
 libPath = path.join(__dirname, 'lib'),
 distPath = path.join(__dirname, 'dist'),
 HtmlWebpackPlugin = require('html-webpack-plugin'),
@@ -11,8 +11,7 @@ ProgressBarPlugin = require('progress-bar-webpack-plugin'), // To be delete when
 autoprefixer = require('autoprefixer'),
 ExtractTextPlugin = require("extract-text-webpack-plugin");
 
-let extractCSS = new ExtractTextPlugin('[name]-[hash].css');
-let extractLESS = new ExtractTextPlugin('[name]-[hash].less');
+var extractCSS = new ExtractTextPlugin('[name]-[hash].css');
 
 var cf = {
 	entry: path.join(libPath, 'index.js'),
