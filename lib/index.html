@@ -7,60 +7,34 @@
 	<title>{%=o.htmlWebpackPlugin.options.title || 'Webpack App'%}</title>
 </head>
 
-<body ng-controller="mainController as mainCtrl">
-	<header ng-controller="langController as langCtrl">
-		<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
-			<div class="container">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle" ng-click="langCtrl.toggleMobileMenu()">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<a class="navbar-brand" ui-sref="home">Brand</a>
-				</div>
+<body ng-controller="mainController as mainCtrl" layout="column" ng-cloak>
+	<md-toolbar layout="row" class="md-toolbar-tools">
+		<md-button class="menu" hide-gt-sm>
+			<md-icon aria-label="Menu" class="material-icons">menu</md-icon>
+		</md-button>
+		<h2>Website name</h2>
+	</md-toolbar>
 
-				<div class="collapse navbar-collapse" ng-class="langCtrl.generalReducer.isMobileMenuOpen && 'in'">
-					<ul class="nav navbar-nav">
-						<li ui-sref-active="active" ng-click="langCtrl.closeMobileMenu()">
-							<a ui-sref="home"><i class="fa fa-home"></i></a>
-						</li>
-						<li ui-sref-active="active" ng-click="langCtrl.closeMobileMenu()">
-							<a  ui-sref="page1">Page 1</a>
-						</li>
-						<li ui-sref-active="active" ng-click="langCtrl.closeMobileMenu()">
-							<a ui-sref="page2">Page 2</a>
-						</li>
-						<li ui-sref-active="active" ng-click="langCtrl.closeMobileMenu()">
-							<a ui-sref="page3">Page 3</a>
-						</li>
-					</ul>
-					<ul class="nav navbar-nav navbar-right lang">
-						<li class="lang"><a href="" ng-click="langCtrl.setLang('fr')" ng-class="{selected: langCtrl.langReducer==='fr'}">FR</a></li>
-						<li><a href="" ng-click="langCtrl.setLang('en')" ng-class="{selected: langCtrl.langReducer==='en'}">EN</a></li>
-					</ul>
-				</div>
-			</div>
-		</nav>
-	</header>
+	<div layout="row" flex>
+		<md-sidenav layout="column" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')" class="md-whiteframe-z2">
+			sidenav
+			<md-list>
+				<md-list-item>
+					<md-button>Test</md-button>
+				</md-list-item>
+				<md-list-item>
+					<md-button>Test</md-button>
+				</md-list-item>
+				<md-list-item>
+					<md-button>Test</md-button>
+				</md-list-item>
+			</md-list>
+		</md-sidenav>
 
-	<!-- CONTENT START -->
-	<section id="content">
-		<div class="container">
-			<div class="row">
-				<!-- CONTENT -->
-				<div class="col-xs-12 col-sm-8 col-md-9">
-					<div ui-view="mainView" class="anim-in-out anim-slide-below-fade" data-anim-speed="300"></div>
-				</div>
-
-				<!-- RIGHT MENU -->
-				<div class="col-xs-12 col-sm-4 col-md-3 right-menu">
-					<div ui-view="rightMenuView"></div>
-				</div>
-			</div>
-		</div>
-	</section>
+		<md-content flex>
+			content
+		</md-content>
+	</div>
 </body>
 
 </html>

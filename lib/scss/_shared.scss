@@ -1,11 +1,7 @@
 @import "variables";
 
-body {
-	font-size: 15px;
-}
-
-#content {
-	margin-top: 15px;
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
 }
 
 .full-width {
