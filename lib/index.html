@@ -1,40 +1,13 @@
 <!DOCTYPE html>
 <html lang="fr" ng-strict-di ng-app="demo">
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>{%=o.htmlWebpackPlugin.options.title || 'Webpack App'%}</title>
-</head>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>{%=o.htmlWebpackPlugin.options.title || 'Webpack App'%}</title>
+	</head>
 
-<body ng-controller="mainController as mainCtrl" layout="column" ng-cloak>
-	<md-toolbar layout="row" class="md-toolbar-tools">
-		<md-button class="menu" hide-gt-sm>
-			<md-icon aria-label="Menu" class="material-icons">menu</md-icon>
-		</md-button>
-		<h2>Website name</h2>
-	</md-toolbar>
-
-	<div layout="row" flex>
-		<md-sidenav layout="column" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')" class="md-whiteframe-z2">
-			sidenav
-			<md-list>
-				<md-list-item>
-					<md-button>Test</md-button>
-				</md-list-item>
-				<md-list-item>
-					<md-button>Test</md-button>
-				</md-list-item>
-				<md-list-item>
-					<md-button>Test</md-button>
-				</md-list-item>
-			</md-list>
-		</md-sidenav>
-
-		<md-content flex>
-			content
-		</md-content>
-	</div>
-</body>
-
+	<body layout="column">
+		<app layout="column" flex>App loading ...</app>
+	</body>
 </html>
