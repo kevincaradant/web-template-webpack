@@ -6,53 +6,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>{%=o.htmlWebpackPlugin.options.title || 'Webpack App'%}</title>
 </head>
-
-<body ng-controller="mainController as mainCtrl">
-	<header ng-controller="langController as langCtrl">
-		<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
-			<div class="container">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle" ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<a class="navbar-brand" ui-sref="home">Brand</a>
-				</div>
-
-				<div class="collapse navbar-collapse" ng-class="!navCollapsed && 'in'">
-					<ul class="nav navbar-nav">
-						<li ng-class="{ active: mainCtrl.isActive('/home')}" ng-click="navCollapsed=true"><a ui-sref="home"><i class="fa fa-home"></i></a></li>
-						<li ng-class="{ active: mainCtrl.isActive('/page1')}" ng-click="navCollapsed=true"><a  ui-sref="page1">Page 1</a></li>
-						<li ng-class="{ active: mainCtrl.isActive('/page2')}" ng-click="navCollapsed=true"><a ui-sref="page2">Page 2</a></li>
-						<li ng-class="{ active: mainCtrl.isActive('/page3')}" ng-click="navCollapsed=true"><a ui-sref="page3">Page 3</a></li>
-					</ul>
-					<ul class="nav navbar-nav navbar-right lang">
-						<li class="lang"><a href="" ng-click="langCtrl.changeLanguageTo('fr')" ng-class="{ selected: langCtrl.getLanguage()=='fr'}">FR</a></li>
-						<li><a href="" ng-click="langCtrl.changeLanguageTo('en')" ng-class="{ selected: langCtrl.getLanguage()=='en'}">EN</a></li>
-					</ul>
-				</div>
-			</div>
-		</nav>
-	</header>
-
-	<!-- CONTENT START -->
-	<section id="content">
-		<div class="container">
-			<div class="row">
-				<!-- CONTENT -->
-				<div class="col-xs-12 col-sm-8 col-md-9">
-					<div ui-view="mainView" class="anim-in-out anim-slide-below-fade" data-anim-speed="300"></div>
-				</div>
-
-				<!-- RIGHT MENU -->
-				<div class="col-xs-12 col-sm-4 col-md-3 right-menu">
-					<div ui-view="rightMenuView"></div>
-				</div>
-			</div>
-		</div>
-	</section>
+<body >
+	<app>Application loading...</app>
 </body>
 
 </html>
