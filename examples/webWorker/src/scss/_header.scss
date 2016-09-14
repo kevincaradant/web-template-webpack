@@ -1,0 +1,35 @@
+@import "variables";
+
+header {
+	.navbar-collapse.collapse {
+		display: block;
+		overflow: hidden;
+		max-height: 0px;
+		-webkit-transition: max-height .3s ease;
+		-moz-transition: max-height .3s ease;
+		-o-transition: max-height .3s ease;
+		transition: max-height .3s ease;
+	}
+	
+	.navbar-collapse.collapse.in {
+		max-height: 2000px;
+	}
+
+	.navbar {
+		border-radius: 0;
+
+		&.navbar-inverse {
+			.lang .selected {
+				color: white;
+			}
+		}
+
+		.lang .selected {
+			color: #333;
+		}
+
+		li.active a {
+			color:white !important;
+		}
+	}
+}

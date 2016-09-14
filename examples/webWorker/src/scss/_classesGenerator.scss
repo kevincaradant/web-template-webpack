@@ -1,0 +1,19 @@
+@import "variables";
+
+@each $key, $value in $color_palette {
+	.color-#{$key} {
+		color:$value;
+	}
+
+	.background-color-#{$key} {
+		background-color:$value;
+	}
+	
+	.border-color-#{$key} {
+		border-color:$value;
+	}
+
+	.background-color-hover-#{$key}:hover  {
+		background-color: $value;
+	}
+}

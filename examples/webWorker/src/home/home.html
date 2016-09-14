@@ -1,0 +1,76 @@
+<div id="home">
+	<div class="row">
+		<div class="col-xs-12">
+			<!-- content -->
+			<span id="name">{{home.name}}<br/><br/></span>
+			<div ng-controller="homeController as home">
+				<!-- {{ seconds }} -->
+				<div class="table-responsive">
+					<table class="table text-center">
+						<thead>
+							<tr>
+								<th>#</th>
+								<td class="color-red">
+									<i class="fa fa-ban font-size-x2"></i>
+									<b>{{ 'TITLE_1' | translate }}</b>
+								</td>
+								<td class="color-green">
+									<i class="fa fa-check-circle font-size-x2"></i>
+									<b>{{ 'TITLE_2' | translate }}</b>
+								</td>
+							</tr>
+						</thead>
+
+						<tr>
+							<th>Fibonacci</th>
+							<td>
+								<div><input type="number" class="form-control" ng-model="home.fibonacciIndex"></div>
+							</td>
+
+							<td>
+								<div><input type="number" class="form-control" ng-model="home.fibonacciIndex"></div>
+							</td>
+						</tr>
+
+						<tr>
+							<th>{{ 'RUN' | translate }}</th>
+							<td>
+								<button class="btn btn-danger btn-block btn-lg" ng-click="home.fibWithoutWW()">{{ 'TITLE_1' | translate }}</button>
+							</td>
+							<td>
+								<button class="btn btn-success btn-block btn-lg" ng-click="home.fibWithWW()">{{ 'TITLE_2' | translate }}</button>
+							</td>
+						</tr>
+
+						<tr>
+							<th>{{ 'TIME' | translate }}</th>
+							<td>
+								<div ng-if="home.secFibWithoutWW !== -1">{{ home.secFibWithoutWW }} second<span ng-if="home.secFibWithoutWW > 1">s</span></div>
+								<div ng-if="home.secFibWithoutWW === -1">Please run it first</div>
+							</td>
+							<td>
+								<div ng-if="home.secFibWithWW !== -1">{{ home.secFibWithWW }} second<span ng-if="home.secFibWithWW > 1">s</span></div>
+								<div ng-if="home.secFibWithWW === -1">Please run it first</div>
+							</td>
+						</tr>
+
+						<tr>
+							<th>{{ 'RESULT' | translate }}</th>
+							<td>
+								<div ng-if="home.rsltFibWithoutWW !== -1">{{ home.rsltFibWithoutWW }}</div>
+								<div ng-if="home.rsltFibWithoutWW === -1 && home.secFibWithoutWW === -1">{{ 'START' | translate }}</div>
+								<div ng-if="home.rsltFibWithoutWW === -1 && home.secFibWithoutWW != -1">{{ 'PENDING' | translate }}</div>
+							</td>
+							<td>
+								<div ng-if="home.rsltFibWithWW !== -1">{{ home.rsltFibWithWW }}</div>
+								<div ng-if="home.rsltFibWithWW === -1 && home.secFibWithWW === -1">{{ 'START' | translate }}</div>
+								<div ng-if="home.rsltFibWithWW === -1 && home.secFibWithWW != -1">{{ 'PENDING' | translate }}</div>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>

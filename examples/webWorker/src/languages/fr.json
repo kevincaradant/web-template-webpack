@@ -1,0 +1,9 @@
+{
+	"TITLE_1"		: "Sans web-workers",
+	"TITLE_2"		: "Avec web-workers",
+	"RUN"		: "Démarrer",
+	"RESULT"		: "Résultat",
+	"TIME"		: "Temps",
+	"PENDING"		: "En cours",
+	"START"		: "Please run it first"
+}
