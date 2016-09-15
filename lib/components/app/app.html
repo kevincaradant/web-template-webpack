@@ -13,14 +13,22 @@
 
 			<div class="collapse navbar-collapse" ng-class="!langCtrl.navCollapsed && 'in'">
 				<ul class="nav navbar-nav">
-					<li ng-class="{ active: mainCtrl.isActive('/home')}" ng-click="langCtrl.navCollapsed=true"><a ui-sref="home"><i class="fa fa-home"></i></a></li>
-					<li ng-class="{ active: mainCtrl.isActive('/page1')}" ng-click="langCtrl.navCollapsed=true"><a  ui-sref="page1">Page 1</a></li>
-					<li ng-class="{ active: mainCtrl.isActive('/page2')}" ng-click="langCtrl.navCollapsed=true"><a ui-sref="page2">Page 2</a></li>
-					<li ng-class="{ active: mainCtrl.isActive('/page3')}" ng-click="langCtrl.navCollapsed=true"><a ui-sref="page3">Page 3</a></li>
+					<li ui-sref-active="active" ng-click="langCtrl.navCollapsed=true">
+						<a ui-sref="home"><i class="fa fa-home"></i></a>
+					</li>
+					<li ui-sref-active="active" ng-click="langCtrl.navCollapsed=true">
+						<a  ui-sref="page1">Page 1</a>
+					</li>
+					<li ui-sref-active="active" ng-click="langCtrl.navCollapsed=true">
+						<a ui-sref="page2">Page 2</a>
+					</li>
+					<li ui-sref-active="active" ng-click="langCtrl.navCollapsed=true">
+						<a ui-sref="page3">Page 3</a>
+					</li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right lang">
-					<li class="lang"><a href="" ng-click="langCtrl.changeLanguageTo('fr')" ng-class="{ selected: langCtrl.getLanguage()=='fr'}">FR</a></li>
-					<li><a href="" ng-click="langCtrl.changeLanguageTo('en')" ng-class="{ selected: langCtrl.getLanguage()=='en'}">EN</a></li>
+					<li class="lang"><a href="" ng-click="langCtrl.changeLanguageTo('fr')" ng-class="{ selected: langCtrl.getLanguage()==='fr'}">FR</a></li>
+					<li><a href="" ng-click="langCtrl.changeLanguageTo('en')" ng-class="{ selected: langCtrl.getLanguage()==='en'}">EN</a></li>
 				</ul>
 			</div>
 		</div>
