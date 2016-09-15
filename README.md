@@ -9,7 +9,8 @@ You just need to kick start your project ? This repo has been made for you !
 - [Angularjs](https://angularjs.org/)
 - [Sass](http://sass-lang.com/)
 - [Karma](http://karma-runner.github.io/)
-- [Xo](http://eslint.org/) && (https://github.com/sindresorhus/xo)
+- [Xo](https://github.com/sindresorhus/xo)
+- [Eslint](http://eslint.org/)
 
 ## Workflow Features
 - **Webpack** fully automated workflow
