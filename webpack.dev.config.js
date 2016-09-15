@@ -17,22 +17,28 @@ var cf = {
 	module: {
 		loaders: [{
 			test: /\.json$/,
+			exclude: /node_modules/,
 			loaders: ["raw-loader"]
 		},{
 			test: /\.(html|jpe?g|gif|png|svg|woff|woff2|ttf|eot|wav|mp3)$/,
-			loader: 'file' // inline base64 URLs for <=10kb images, direct URLs for the rest
+			// inline base64 URLs for <=10kb images, direct URLs for the rest
+			// exclude: /node_modules/, is not working and should be here if a fix is found !
+			loader: 'file',
 		},{
 			test: /\.scss$/,
+			exclude: /node_modules/,
 			loaders: ['style', 'css', 'sass', 'resolve-url', 'sass?sourceMap']
 		},{
 			test: /\.css$/,
+			exclude: /node_modules/,
 			loaders: ["style-loader", "css-loader"]
 		},{
 			test: /\.less$/,
+			exclude: /node_modules/,
 			loaders: ['css','less', 'resolve-url', 'less?sourceMap']
 		},{
 			test: /\.js$/,
-			exclude: /(node_modules)/,
+			exclude: /node_modules/,
 			loaders: ['ng-annotate?add=true', 'babel-loader', 'eslint-loader']
 		}]
 	},
