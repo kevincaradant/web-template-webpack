@@ -6,7 +6,6 @@ ProgressBarPlugin = require('progress-bar-webpack-plugin'), // To be delete when
 os = require('os');
 
 var cf = {
-
 	entry: path.join(libPath, 'index.js'),
 
 	devtool: 'source-map',
