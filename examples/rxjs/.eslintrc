@@ -1,0 +1,34 @@
+{
+  "globals": {
+    "angular": true,
+    "app": true,
+    "describe": true,
+    "beforeEach": true,
+    "inject": true,
+    "it": true,
+    "expect": true,
+    "module": true,
+    "require": true
+  },
+  "rules": {
+    "linebreak-style": [
+      0
+    ],
+    "new-cap": 1,
+    "no-unused-expressions": 0,
+    "max-params": ["error", 6],
+    "no-invalid-this": 0,
+    "strict": [
+      2,
+      "function"
+    ],
+    "brace-style": [
+      2,
+      "stroustrup",
+      {
+        "allowSingleLine": false
+      }
+    ]
+  },
+  "extends": "xo"
+}

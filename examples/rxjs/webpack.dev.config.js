@@ -42,7 +42,7 @@ var cf = {
 	},
 
 	devServer: {
-		port: 3001,
+		port: 3003,
 		https: false,
 		inline: true,
 		compress: true,

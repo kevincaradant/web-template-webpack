@@ -1,0 +1,33 @@
+<div id="page1"> {{page1.name}}
+	<div class="row">
+		<div class="col-xs-12">
+			<hr />
+			<div class="row">
+				<div class="col-xs-6">
+					<div ng-controller="rxjs1Controller as rx1">
+						{{ 'L_1' | translate }}:
+						<button ng-click="rx1.addUser()" class="btn btn-default">{{ 'ADD_USER' | translate }}</button>
+						<div ng-repeat="user in rx1.users | rxjsFilter track by $index">
+							<span ng-show="user.isVisible">
+								<input type="checkbox" ng-model="user.isVisible" />{{ user.name }}
+							</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-xs-6">
+					<div ng-controller="rxjs2Controller as rx2">
+						{{ 'L_2' | translate }}:
+						<button ng-click="rx2.addUser()" class="btn btn-default">{{ 'ADD_USER' | translate }}</button>
+						<div ng-repeat="user in rx2.users track by $index">
+							<span ng-show="!user.isVisible">
+								<input type="checkbox" ng-model="user.isVisible" />{{ user.name }}
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>

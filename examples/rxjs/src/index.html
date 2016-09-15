@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr" ng-strict-di ng-app="demo">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>{%=o.htmlWebpackPlugin.options.title || 'Webpack App'%}</title>
+</head>
+
+<body ng-controller="mainController as mainCtrl">
+	<header ng-controller="langController as langCtrl">
+		<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" ng-init="langCtrl.navCollapsed = true" ng-click="langCtrl.navCollapsed = !langCtrl.navCollapsed">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" ui-sref="home">Brand</a>
+				</div>
+
+				<div class="collapse navbar-collapse" ng-class="!langCtrl.navCollapsed && 'in'">
+					<ul class="nav navbar-nav">
+						<li ng-class="{ active: mainCtrl.isActive('/home')}" ng-click="langCtrl.navCollapsed=true"><a ui-sref="home"><i class="fa fa-home"></i></a></li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right lang">
+						<li class="lang"><a href="" ng-click="langCtrl.changeLanguageTo('fr')" ng-class="{ selected: langCtrl.getLanguage()=='fr'}">FR</a></li>
+						<li><a href="" ng-click="langCtrl.changeLanguageTo('en')" ng-class="{ selected: langCtrl.getLanguage()=='en'}">EN</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</header>
+
+	<!-- CONTENT START -->
+	<section id="content">
+		<div class="container">
+			<div class="row">
+				<!-- CONTENT -->
+				<div class="col-xs-12">
+					<div ui-view="mainView" class="anim-in-out anim-slide-below-fade" data-anim-speed="300"></div>
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+
+</html>
