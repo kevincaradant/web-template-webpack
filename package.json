@@ -49,6 +49,7 @@
     "cross-env": "2.0.1",
     "font-awesome": "4.3.0",
     "http-server": "0.9.0",
+    "immutable": "3.8.1",
     "material-design-icons": "3.0.1",
     "ng-redux": "3.4.0-beta.1",
     "redux-thunk": "2.1.0"

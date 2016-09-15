@@ -8,7 +8,8 @@
     "it": true,
     "expect": true,
     "module": true,
-    "require": true
+    "require": true,
+    "immutable": true
   },
   "rules": {
     "linebreak-style": [
