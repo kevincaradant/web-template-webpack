@@ -10,11 +10,8 @@ var cf = {
 	entry: path.join(libPath, 'index.js'),
 
 	devtool: 'source-map',
-
-	resolveLoader: {
-		root: path.join(__dirname, 'node_modules')
-	},
-
+	debug: true,
+	cache: false,
 	module: {
 		loaders: [{
 			test: /\.json$/,
@@ -27,14 +24,14 @@ var cf = {
 			loader: 'file' // inline base64 URLs for <=10kb images, direct URLs for the rest
 		},{
 			test: /\.less$/,
-			loaders: ['style', 'css', 'less?sourceMap', 'resolve-url', 'postcss-loader']
+			loaders: ['style', 'css', 'less?sourceMap', 'resolve-url']
 		},{
 			test: /\.scss$|\.css$/,
-			loaders: ['style', 'css-loader', 'resolve-url', 'postcss-loader', 'sass?sourceMap']
+			loaders: ['style', 'css-loader', 'resolve-url', 'sass?sourceMap']
 		},{
 			test: /\.js$/,
-			exclude: /(node_modules)/,
-			loaders: ['ng-annotate?add=true', 'babel', 'eslint-loader']
+			exclude: /node_modules/,
+			loaders: ['ng-annotate?add=true&map=true', 'babel', 'eslint-loader']
 		}]
 	},
 
