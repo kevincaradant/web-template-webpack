@@ -2,8 +2,7 @@ var path = require('path'),
 webpack = require('webpack'),
 libPath = path.join(__dirname, 'lib'),
 HtmlWebpackPlugin = require('html-webpack-plugin'),
-ProgressBarPlugin = require('progress-bar-webpack-plugin'), // To be delete when webpack will accept the flag --progress in the devserver and not only in CMD
-os = require('os');
+ProgressBarPlugin = require('progress-bar-webpack-plugin'); // To be delete when webpack will accept the flag --progress in the devserver and not only in CMD
 
 var cf = {
 

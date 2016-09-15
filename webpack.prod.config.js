@@ -3,7 +3,6 @@ webpack = require('webpack'),
 libPath = path.join(__dirname, 'lib'),
 distPath = path.join(__dirname, 'dist'),
 HtmlWebpackPlugin = require('html-webpack-plugin'),
-os = require('os'),
 ImageminPlugin = require('imagemin-webpack-plugin').default,
 OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin'),
 ProgressBarPlugin = require('progress-bar-webpack-plugin'), // To be delete when webpack will accept the flag --progress in the devserver and not only in CMD
