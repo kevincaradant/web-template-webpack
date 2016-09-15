@@ -1,45 +1,41 @@
 var path = require('path'),
-webpack = require("webpack"),
+webpack = require('webpack'),
 libPath = path.join(__dirname, 'lib'),
 HtmlWebpackPlugin = require('html-webpack-plugin'),
-ProgressBarPlugin = require('progress-bar-webpack-plugin'), // To be delete when webpack will accept the flag --progress in the devserver and not only in CMD
-os = require('os');
+ProgressBarPlugin = require('progress-bar-webpack-plugin'); // To be delete when webpack will accept the flag --progress in the devserver and not only in CMD
 
 var cf = {
 	entry: path.join(libPath, 'index.js'),
 
 	devtool: 'source-map',
-
-	resolveLoader: {
-		root: path.join(__dirname, 'node_modules')
-	},
-
+	debug: true,
+	cache: false,
 	module: {
 		loaders: [{
 			test: /\.json$/,
 			exclude: /node_modules/,
 			loaders: ["raw-loader"]
 		},{
-			test: /\.(html|jpe?g|gif|png|svg|woff|woff2|ttf|eot|wav|mp3)$/,
+			test: /\.html$/,
+			exclude: /node_modules/,
+			loader: 'ngtemplate!html'
+		},{
+			test: /\.(jpe?g|gif|png|svg|woff|woff2|ttf|eot|wav|mp3)$/,
 			// inline base64 URLs for <=10kb images, direct URLs for the rest
 			// exclude: /node_modules/, is not working and should be here if a fix is found !
-			loader: 'file',
-		},{
-			test: /\.scss$/,
-			exclude: /node_modules/,
-			loaders: ['style', 'css', 'sass', 'resolve-url', 'sass?sourceMap']
-		},{
-			test: /\.css$/,
-			exclude: /node_modules/,
-			loaders: ["style-loader", "css-loader"]
+			loader: 'file'
 		},{
 			test: /\.less$/,
 			exclude: /node_modules/,
-			loaders: ['css','less', 'resolve-url', 'less?sourceMap']
+			loaders: ['style', 'css', 'less?sourceMap', 'resolve-url']
+		},{
+			test: /\.scss$|\.css$/,
+			exclude: /node_modules/,
+			loaders: ['style', 'css-loader', 'resolve-url', 'sass?sourceMap']
 		},{
 			test: /\.js$/,
 			exclude: /node_modules/,
-			loaders: ['ng-annotate?add=true', 'babel-loader', 'eslint-loader']
+			loaders: ['ng-annotate?add=true&map=true', 'babel', 'eslint-loader']
 		}]
 	},
 
@@ -58,7 +54,6 @@ var cf = {
 	},
 
 	plugins: [
-		// HtmlWebpackPlugin: Simplifies creation of HTML files to serve your webpack bundles : https://www.npmjs.com/package/html-webpack-plugin
 		new HtmlWebpackPlugin({
 			inject: true,
 			filename: 'index.html',
@@ -66,10 +61,8 @@ var cf = {
 			template: path.join(libPath, 'index.html')
 		}),
 
-		// OccurenceOrderPlugin: Assign the module and chunk ids by occurrence count. : https://webpack.github.io/docs/list-of-plugins.html#occurenceorderplugin
 		new webpack.optimize.OccurenceOrderPlugin(),
 
-		// Deduplication: find duplicate dependencies & prevents duplicate inclusion : https://github.com/webpack/docs/wiki/optimization#deduplication
 		new webpack.optimize.DedupePlugin(),
 
 		new webpack.HotModuleReplacementPlugin(),

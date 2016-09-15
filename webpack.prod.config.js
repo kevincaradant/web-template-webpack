@@ -1,18 +1,15 @@
 var path = require('path'),
-webpack = require("webpack"),
+webpack = require('webpack'),
 libPath = path.join(__dirname, 'lib'),
 distPath = path.join(__dirname, 'dist'),
 HtmlWebpackPlugin = require('html-webpack-plugin'),
-os = require('os'),
 ImageminPlugin = require('imagemin-webpack-plugin').default,
 OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin'),
-webpackUglifyJsPlugin = require('webpack-uglify-js-plugin'),
 ProgressBarPlugin = require('progress-bar-webpack-plugin'), // To be delete when webpack will accept the flag --progress in the devserver and not only in CMD
 autoprefixer = require('autoprefixer'),
 ExtractTextPlugin = require("extract-text-webpack-plugin");
 
-let extractCSS = new ExtractTextPlugin('[name]-[hash].css');
-let extractLESS = new ExtractTextPlugin('[name]-[hash].less');
+var extractCSS = new ExtractTextPlugin('[name]-[hash].css');
 
 var cf = {
 	entry: path.join(libPath, 'index.js'),
@@ -20,24 +17,21 @@ var cf = {
 		path: path.join(distPath),
 		filename: 'bundle-[hash:6].js'
 	},
+	debug: false,
 	resolveLoader: { root: path.join(__dirname, 'node_modules') },
 	module: {
 		loaders: [
 			{
 				test: /\.html$/,
-				loader: 'file?name=lib/templates/[name]-[hash].html'
-			},
-			{
-				test: /\.css$/,
-				loader:  extractCSS.extract(["style-loader", "css-loader", "postcss-loader"])
-			},
-			{
-				test: /\.scss$/,
-				loader: extractCSS.extract(['css', 'resolve-url', 'sass?sourceMap'])
+				loader: 'ngtemplate!html'
 			},
 			{
 				test: /\.less$/,
-				loader: extractLESS.extract(['css','less', 'resolve-url', 'less?sourceMap'])
+				loader: extractCSS.extract(['css', 'less', 'resolve-url', 'postcss-loader'])
+			},
+			{
+				test: /\.scss$|\.css$/,
+				loader: extractCSS.extract(['css-loader', 'resolve-url', 'postcss-loader', 'sass?sourceMap'])
 			},
 			{
 				test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
@@ -59,15 +53,9 @@ var cf = {
 			{
 				test: /\.js$/,
 				exclude: /(node_modules)/,
-				loaders: ['ng-annotate?add=true', 'babel']
+				loaders: ['ng-annotate?add=true&map=false', 'babel-loader']
 			}
 		]
-	},
-
-	devServer: {
-		port: 3001,
-		compress:true,
-		colors:true
 	},
 
 	postcss: function () {
@@ -80,6 +68,13 @@ var cf = {
 			inject: true,
 			filename: 'index.html',
 			title: 'MY_CUSTOM_APP',
+			minify: {
+				collapseWhitespace: true,
+				removeComments: true,
+				removeRedundantAttributes: true,
+				removeScriptTypeAttributes: true,
+				removeStyleLinkTypeAttributes: true
+			},
 			template: path.join(libPath, 'index.html')
 		}),
 
@@ -113,18 +108,19 @@ var cf = {
 		}),
 
 		// a faire uniquement en prod
-		new webpackUglifyJsPlugin ({
-			cacheFolder: path.resolve(__dirname, 'dist/cached_uglify/'),
+		new webpack.optimize.UglifyJsPlugin ({
 			sourceMap: false,
-			minimize: false,
+			minimize: true,
+			comments: false,
 			compressor: {
 				warnings: false
 			}
 		}),
+
 		new webpack.optimize.AggressiveMergingPlugin(),
 
 		extractCSS,
-		extractLESS,
+
 
 		new ProgressBarPlugin({format: '  build [:bar] ' + (':percent') + ' (:elapsed seconds)'})
 	]
