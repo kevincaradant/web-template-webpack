@@ -5,11 +5,12 @@
   "main": "index.js",
   "scripts": {
     "test": "cross-env NODE_ENV=test karma start",
+    "test:unit": "cross-env NODE_ENV=test karma start",
     "xo": "eslint lib/**/*.js",
     "prod": "rm -rf dist/* && cross-env NODE_ENV=production webpack --config webpack.prod.config.js",
     "dev": "cross-env NODE_ENV=development webpack-dev-server --config webpack.dev.config.js",
     "server:prod": "http-server dist --cors",
-    "test:watch": "cross-env NODE_ENV=test karma start --auto-watch --no-single-run"
+    "test:unit:watch": "cross-env NODE_ENV=test karma start --auto-watch --no-single-run"
   },
   "repository": {
     "type": "git",
@@ -96,7 +97,8 @@
     "postcss-loader": "0.13.0",
     "progress-bar-webpack-plugin": "1.9.0",
     "resolve-url-loader": "1.6.0",
-    "sass-loader": "4.0.2",
+    "sass-lint": "1.9.1",
+    "sasslint-webpack-plugin": "1.0.4",
     "style-loader": "0.13.1",
     "url-loader": "0.5.7",
     "webpack": "1.13.2",
