@@ -1,16 +1,13 @@
-@import "variables";
+@import 'variables';
 
 header {
 	.navbar-collapse.collapse {
 		display: block;
+		max-height: 0;
 		overflow: hidden;
-		max-height: 0px;
-		-webkit-transition: max-height .3s ease;
-		-moz-transition: max-height .3s ease;
-		-o-transition: max-height .3s ease;
 		transition: max-height .3s ease;
 	}
-	
+
 	.navbar-collapse.collapse.in {
 		max-height: 2000px;
 	}
@@ -20,16 +17,16 @@ header {
 
 		&.navbar-inverse {
 			.lang .selected {
-				color: white;
+				color: $color-white;
 			}
 		}
 
 		.lang .selected {
-			color: #333;
+			color: $color-green;
 		}
 
 		li.active a {
-			color:white !important;
+			color: $color-white;
 		}
 	}
 }

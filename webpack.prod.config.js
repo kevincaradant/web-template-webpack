@@ -7,7 +7,8 @@ ImageminPlugin = require('imagemin-webpack-plugin').default,
 OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin'),
 ProgressBarPlugin = require('progress-bar-webpack-plugin'), // To be delete when webpack will accept the flag --progress in the devserver and not only in CMD
 autoprefixer = require('autoprefixer'),
-ExtractTextPlugin = require("extract-text-webpack-plugin");
+ExtractTextPlugin = require("extract-text-webpack-plugin"),
+sassLintPlugin = require('sasslint-webpack-plugin');
 
 var extractCSS = new ExtractTextPlugin('[name]-[hash].css');
 
@@ -56,6 +57,10 @@ var cf = {
 				loaders: ['ng-annotate?add=true&map=false', 'babel-loader']
 			}
 		]
+	},
+
+	eslint: {
+		configFile: './.eslintrc'
 	},
 
 	postcss: function () {
@@ -121,6 +126,10 @@ var cf = {
 
 		extractCSS,
 
+		new sassLintPlugin({
+			glob: 'lib/**/*.s?(a|c)ss',
+			configFile: '.sass-lint.yml'
+		}),
 
 		new ProgressBarPlugin({format: '  build [:bar] ' + (':percent') + ' (:elapsed seconds)'})
 	]

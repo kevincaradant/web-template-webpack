@@ -2,8 +2,8 @@ var path = require('path'),
 webpack = require('webpack'),
 libPath = path.join(__dirname, 'lib'),
 HtmlWebpackPlugin = require('html-webpack-plugin'),
-ProgressBarPlugin = require('progress-bar-webpack-plugin'); // To be delete when webpack will accept the flag --progress in the devserver and not only in CMD
-
+ProgressBarPlugin = require('progress-bar-webpack-plugin'), // To be delete when webpack will accept the flag --progress in the devserver and not only in CMD
+sassLintPlugin = require('sasslint-webpack-plugin');
 var cf = {
 
 	entry: path.join(libPath, 'index.js'),
@@ -62,7 +62,13 @@ var cf = {
 
 		new webpack.HotModuleReplacementPlugin(),
 
+		new sassLintPlugin({
+			glob: 'lib/**/*.s?(a|c)ss',
+			configFile: '.sass-lint.yml'
+		}),
+
 		new ProgressBarPlugin({format: '  build [:bar] ' + (':percent') + ' (:elapsed seconds)'})
+
 	]
 };
 

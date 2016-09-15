@@ -1,22 +1,23 @@
-@import "../../scss/variables";
+@import '../../scss/variables';
 
-.complete-block, .complete-block-no-header {
+.complete-block,
+.complete-block-no-header {
 	margin-bottom: 20px;
 	width: 100%;
 
 	.header {
 		height: 60px;
-		text-align: center;
 		line-height: 60px;
+		text-align: center;
 	}
 
 	.header-text {
-		text-align: left;
+		font-size: 18px;
+		font-weight: bold;
 		padding: 10px;
 		padding-left: 10px;
 		padding-right: 10px;
-		font-weight: bold;
-		font-size: 18px;
+		text-align: left;
 	}
 
 	.wrapper-header-img {
@@ -26,13 +27,13 @@
 	}
 
 	.wrapper-body {
-		border-left: 1px solid $color_black;
-		border-bottom: 1px solid $color_black;
-		border-right: 1px solid $color_black;
+		border-bottom: 1px solid $color-black;
+		border-left: 1px solid $color-black;
+		border-right: 1px solid $color-black;
 		min-height: 160px;
-		width: 100%;
-		padding-top: 10px;
 		padding-bottom: 10px;
+		padding-top: 10px;
+		width: 100%;
 
 		.body-title {
 			font-size: 19px;
@@ -50,7 +51,7 @@
 .complete-block-no-header {
 
 	.wrapper-body {
-		border: 1px solid $color_black;
+		border: 1px solid $color-black;
 	}
 
 }

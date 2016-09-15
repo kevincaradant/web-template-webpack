@@ -1,11 +1,13 @@
-$color_white: #FFFFFF;
-$color_black: #000000;
-$color_red:   #d9534f;
-$color_green: #5cb85c;
+$color-white: #fff;
+$color-black: #000;
+$color-red: #d9534f;
+$color-green: #5cb85c;
+$color-yellow: #fff633;
 
-$color_palette: (
-	'white': $color_white,
-	'black': $color_black,
-	'red': $color_red,
-	'green': $color_green
+$color-palette: (
+	'white': $color-white,
+	'black': $color-black,
+	'red': $color-red,
+	'green': $color-green,
+	'yellow': $color-yellow
 );
