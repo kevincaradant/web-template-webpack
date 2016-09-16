@@ -14,16 +14,27 @@ var extractCSS = new ExtractTextPlugin('[name]-[hash].css');
 
 var cf = {
 	entry: path.join(libPath, 'index.js'),
+
 	output: {
 		path: path.join(distPath),
 		filename: 'bundle-[hash:6].js'
 	},
+
 	resolve: {
 		root: [path.resolve(__dirname, 'lib'), path.resolve(__dirname, 'node_modules')],
 		extensions: ['', '.js', '.json', '.scss']
 	},
+
 	debug: false,
-	resolveLoader: { root: path.join(__dirname, 'node_modules') },
+
+	stats: {
+		children: false
+	},
+
+	resolveLoader: {
+		root: path.join(__dirname, 'node_modules')
+	},
+
 	module: {
 		loaders: [
 			{
@@ -132,6 +143,9 @@ var cf = {
 
 		new sassLintPlugin({
 			glob: 'lib/**/*.s?(a|c)ss',
+			ignorePlugins: [
+				'extract-text-webpack-plugin'
+			],
 			configFile: '.sass-lint.yml'
 		}),
 
