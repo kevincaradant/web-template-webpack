@@ -18,6 +18,10 @@ var cf = {
 		path: path.join(distPath),
 		filename: 'bundle-[hash:6].js'
 	},
+	resolve: {
+		root: [path.resolve(__dirname, 'lib'), path.resolve(__dirname, 'node_modules')],
+		extensions: ['', '.js', '.json', '.scss']
+	},
 	debug: false,
 	resolveLoader: { root: path.join(__dirname, 'node_modules') },
 	module: {
