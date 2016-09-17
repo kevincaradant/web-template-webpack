@@ -54,6 +54,8 @@ module.exports = function(config) {
 			require("karma-spec-reporter"),
 			require("karma-chai-plugins")
 		],
+		autoWatch: false,
+		singleRun: true,
 
 		browsers: ['PhantomJS']
 	});
