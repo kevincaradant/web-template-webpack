@@ -1,14 +1,17 @@
 var webpack = require("webpack");
+var path = require("path");
 module.exports = function(config) {
 	config.set({
 		files: [
-			'lib/**/*.spec.js'
+			'./tests.webpack.js'
 		],
+
+		preprocessors: { './tests.webpack.js': ['webpack'] },
 
 		// frameworks to use
 		frameworks: ['chai', 'mocha'],
 
-		reporters: ['spec', 'coverage'],
+		reporters: ['spec'],
 
 		coverageReporter: {
 			type: 'html',
@@ -18,24 +21,20 @@ module.exports = function(config) {
 		webpack: {
 			// webpack configuration
 			module: {
-				loaders: [
+				preLoaders: [
 					{
 						test: /\.js$/,
-						exclude: /(node_modules)/,
-						loaders: ['babel']
+						exclude: [
+							path.resolve('node_modules/')
+						],
+						loader: 'babel'
 					}
 				],
-
-				postLoaders: [{
-					test: /\.js/,
-					exclude: /(node_modules)/,
-					loader: 'istanbul-instrumenter'
-				}]
 			},
 			resolve: {
 				modulesDirectories: [
 					"",
-					"src",
+					"lib",
 					"node_modules"
 				]
 			}
