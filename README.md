@@ -8,6 +8,7 @@ You just need to kick start your project ? This repo has been made for you !
 - [Webpack](https://webpack.github.io/docs/)
 - [Angularjs](https://angularjs.org/)
 - [Sass](http://sass-lang.com/)
+- [Protractor](http://www.protractortest.org/#/)
 - [Karma](http://karma-runner.github.io/)
 - [Xo](https://github.com/sindresorhus/xo)
 - [Eslint](http://eslint.org/)
@@ -16,6 +17,7 @@ You just need to kick start your project ? This repo has been made for you !
 - **Webpack** fully automated workflow
 - **Development** and **production** environment targets
 - **Unit** test samples
+- **E2E** test samples
 - **Coverage** to know if your code is tested enough
 - **Sass** linting, sourcemaps minify and concat
 - **Livereload** and - **Hot Reloading** to work without pressing F5 every second and to refresh only the stylesheet modified
@@ -30,7 +32,6 @@ You just need to kick start your project ? This repo has been made for you !
 	- Angular-ui-bootstrap
 	- Angular-animate
 	- Angular-ui-router
-- Rx
 
 # webTemplate-webpack
 A simple AngularJS 1.5 boilerplate using ES6 and components, and webpack
@@ -64,7 +65,7 @@ NB: If you want a website in https:
 - `$ npm run unit`: Execute unit tests with Karma
 - `$ npm run unit:watch`: Execute and refresh automatically the unit tests with Karma if you changed a test
 - `$ npm run e2e`: Execute e2e tests with Protractor
-- `$ npm run doc`: Generate template documentation and start web-server to read the documentation
+- `$ npm run e2e:watch`: Execute e2e tests with Protractor with auto-watch
 - `$ npm run xo`: Lint Javascript code
 
 
@@ -80,6 +81,7 @@ NB: If you want a website in https:
 - `$ npm run unit`
 - `$ npm run unit:watch`
 - `$ npm run e2e`
+- `$ npm run e2e:watch`
 
 #### Documentation:
 - `$ npm run doc`
