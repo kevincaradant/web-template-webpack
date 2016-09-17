@@ -4,16 +4,16 @@
   "description": "A simple AngularJS 1.5 with tests karma and protractor boilerplate using ES6 and components, material design and webpack",
   "main": "index.js",
   "scripts": {
-    "test:pre:e2e": "webdriver-manager update && webdriver-manager start && protractor .protractor.conf.js",
+    "test:pre:e2e": "webdriver-manager update && webdriver-manager start",
     "test:e2e": "protractor .protractor.conf.js",
     "test:watch:e2e": "protractor .protractor.conf.js --elementExplorer",
-    "test": "cross-env NODE_ENV=test karma start",
-    "test:unit": "cross-env NODE_ENV=test karma start",
+    "test": "karma start --single-run && protractor .protractor.conf.js",
+    "test:unit": "karma start --single-run",
     "xo": "eslint lib/**/*.js",
     "prod": "rm -rf dist/* && cross-env NODE_ENV=production webpack --config webpack.prod.config.js",
     "dev": "cross-env NODE_ENV=development webpack-dev-server --config webpack.dev.config.js",
     "server:prod": "http-server dist --cors",
-    "test:unit:watch": "cross-env NODE_ENV=test karma start --auto-watch --no-single-run"
+    "test:unit:watch": "karma start --auto-watch --no-single-run"
   },
   "repository": {
     "type": "git",
@@ -102,6 +102,7 @@
     "protractor": "4.0.8",
     "resolve-url-loader": "1.6.0",
     "sass-lint": "1.9.1",
+    "sass-loader": "4.0.2",
     "sasslint-webpack-plugin": "1.0.4",
     "style-loader": "0.13.1",
     "url-loader": "0.5.7",
