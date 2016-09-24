@@ -1,0 +1,32 @@
+<md-toolbar layout="row" class="md-toolbar-tools">
+	<md-button class="menu" hide-gt-sm>
+		<md-icon aria-label="Menu" class="material-icons">menu</md-icon>
+	</md-button>
+	<h2><span>{{'WEBSITE_NAME' | translate}}</span></h2>
+
+	<span flex></span>
+
+	<language></language>
+</md-toolbar>
+
+<div layout="row" flex>
+	<md-sidenav layout="column" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')" class="md-whiteframe-z2">
+		sidenav
+		<md-list>
+			<md-list-item>
+				<md-button>Test</md-button>
+			</md-list-item>
+			<md-list-item>
+				<md-button>Test</md-button>
+			</md-list-item>
+			<md-list-item>
+				<md-button>Test</md-button>
+			</md-list-item>
+		</md-list>
+	</md-sidenav>
+
+	<md-content flex>
+		<div>content</div>
+		<ui-view></ui-view>
+	</md-content>
+</div>
