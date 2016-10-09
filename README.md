@@ -7,6 +7,7 @@ You just need to kick start your project ? This repo has been made for you !
 ## Stack :
 - [Webpack](https://webpack.github.io/docs/)
 - [Angularjs](https://angularjs.org/)
+- [angularBootstrapMaterial](http://fezvrasta.github.io/bootstrap-material-design/)
 - [Sass](http://sass-lang.com/)
 - [Protractor](http://www.protractortest.org/#/)
 - [Karma](http://karma-runner.github.io/)
@@ -24,12 +25,12 @@ You just need to kick start your project ? This repo has been made for you !
 
 ## Main librairies into the project :
 - Bootstrap
-- Font-Awesome
 - Angular
 	- Angular-mocks
 	- Angular-translate
 	- Angular-sanitize
-	- Angular-ui-bootstrap
+	- Angular-bootstrap-material
+	- Angular-bootstrap-material-icons
 	- Angular-animate
 	- Angular-ui-router
 
