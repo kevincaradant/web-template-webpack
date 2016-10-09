@@ -5,7 +5,6 @@ describe('angularjs homepage todo list', function() {
          link1 = element(by.css('li a[href*="#/home"]'));
          link2 = element(by.css('li a[href*="#/page1"]'));
          link3 = element(by.css('li a[href*="#/page2"]'));
-         link4 = element(by.css('li a[href*="#/page3"]'));
     });
 
     it('should click on each link and check the active class', function(){
@@ -22,10 +21,6 @@ describe('angularjs homepage todo list', function() {
         link3.click();
         isActiveLink3 = element(by.css('li:nth-child(3).active'));
         expect(isActiveLink3.isPresent()).toBe(true);
-
-        link4.click();
-        isActiveLink4 = element(by.css('li:nth-child(4).active'));
-        expect(isActiveLink4.isPresent()).toBe(true);
     });
 
     it('should click on each link and check their name', function(){
@@ -33,6 +28,5 @@ describe('angularjs homepage todo list', function() {
         expect(link1.getText()).toBe('');
         expect(link2.getText()).toBe('Page 1');
         expect(link3.getText()).toBe('Page 2');
-        expect(link4.getText()).toBe('Page 3');
     });
 });
