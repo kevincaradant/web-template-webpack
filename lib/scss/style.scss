@@ -1,7 +1,9 @@
 @import 'node_modules/bootstrap/dist/css/bootstrap';
+@import 'node_modules/bootstrap-material-design/dist/css/bootstrap-material-design.min';
+@import 'node_modules/bootstrap-material-design/dist/css/ripples.min';
+@import 'node_modules/bootstrap-material-design-icons/css/material-icons.min';
 @import 'node_modules/angular-loading-bar/build/loading-bar.min';
 @import 'node_modules/angular-ui-router-anim-in-out/css/anim-in-out';
-@import 'node_modules/font-awesome/scss/font-awesome';
 @import 'variables';
 @import 'classesGenerator';
 @import 'header';
