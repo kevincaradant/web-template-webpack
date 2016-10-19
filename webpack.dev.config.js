@@ -1,15 +1,26 @@
 var path = require('path'),
 webpack = require('webpack'),
 libPath = path.join(__dirname, 'lib'),
+nodeModulesPath = path.join(__dirname, 'node_modules'),
 HtmlWebpackPlugin = require('html-webpack-plugin'),
-ProgressBarPlugin = require('progress-bar-webpack-plugin'); // To be delete when webpack will accept the flag --progress in the devserver and not only in CMD
+ProgressBarPlugin = require('progress-bar-webpack-plugin'), // To be delete when webpack will accept the flag --progress in the devserver and not only in CMD
+WatchIgnorePlugin = require('watch-ignore-webpack-plugin'),
+SassLintPlugin = require('sasslint-webpack-plugin');
 
 var cf = {
 	entry: path.join(libPath, 'index.js'),
 
 	devtool: 'source-map',
+
+	resolve: {
+		root: [path.resolve(__dirname, 'lib'), path.resolve(__dirname, 'node_modules')],
+		extensions: ['', '.js', '.json', '.scss']
+	},
+
 	debug: true,
+
 	cache: false,
+
 	module: {
 		loaders: [{
 			test: /\.json$/,
@@ -50,7 +61,7 @@ var cf = {
 		compress: true,
 		hot: true,
 		open: true,
-		color: true
+		noInfo: true
 	},
 
 	plugins: [
@@ -66,6 +77,19 @@ var cf = {
 		new webpack.optimize.DedupePlugin(),
 
 		new webpack.HotModuleReplacementPlugin(),
+
+		new WatchIgnorePlugin([
+			path.resolve( __dirname, './examples/'),
+			path.resolve(__dirname, './node_modules/'),
+		]),
+
+		new SassLintPlugin({
+			glob: 'lib/**/*.s?(a|c)ss',
+			ignorePlugins: [
+				'extract-text-webpack-plugin'
+			],
+			configFile: '.sass-lint.yml'
+		}),
 
 		new ProgressBarPlugin({format: '  build [:bar] ' + (':percent') + ' (:elapsed seconds)'})
 	]
