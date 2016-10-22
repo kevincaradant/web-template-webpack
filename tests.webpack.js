@@ -1,4 +1,6 @@
-// require all `project/test/src/components/**/index.js`
-const testsContext = require.context('./lib/', true, /.*.spec.js$/);
+import 'angular';
+import 'angular-mocks/angular-mocks';
 
-testsContext.keys().forEach(testsContext);
+const context = require.context('./lib', true, /\.js$/);
+
+context.keys().forEach(context);

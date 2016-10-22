@@ -1,62 +1,41 @@
-var webpack = require("webpack");
-var path = require("path");
-module.exports = function(config) {
+module.exports = function karmaConfig (config) {
 	config.set({
+		frameworks: [
+			'jasmine'
+		],
+
+		reporters: [
+			'progress',
+			'coverage'
+		],
+
 		files: [
-			'./tests.webpack.js'
+			'tests.webpack.js'
 		],
 
-		preprocessors: { './tests.webpack.js': ['webpack'] },
-
-		// frameworks to use
-		frameworks: ['chai', 'mocha'],
-
-		reporters: ['spec'],
-
-		coverageReporter: {
-			type: 'html',
-			dir: 'coverage/'
+		preprocessors: {
+			'tests.webpack.js': ['webpack', 'sourcemap']
 		},
 
-		webpack: {
-			// webpack configuration
-			module: {
-				preLoaders: [
-					{
-						test: /\.js$/,
-						exclude: [
-							path.resolve('node_modules/')
-						],
-						loader: 'babel'
-					}
-				],
-			},
-			resolve: {
-				modulesDirectories: [
-					"",
-					"lib",
-					"node_modules"
-				]
-			}
-		},
-
-		webpackMiddleware: {
-			// webpack-dev-middleware configuration
-			noInfo: true
-		},
-
-		plugins: [
-			require("karma-webpack"),
-			require("istanbul-instrumenter-loader"),
-			require("karma-mocha"),
-			require("karma-coverage"),
-			require("karma-phantomjs-launcher"),
-			require("karma-spec-reporter"),
-			require("karma-chai-plugins")
+		browsers: [
+			'PhantomJS'
 		],
+
 		autoWatch: false,
 		singleRun: true,
 
-		browsers: ['PhantomJS']
+		coverageReporter: {
+			dir: 'coverage/',
+			reporters: [
+				{type: 'text-summary'},
+				{type: 'html'}
+			]
+		},
+
+		webpack: require('./webpack.test.config'),
+
+		webpackMiddleware: {
+			noInfo: 'errors-only'
+		}
 	});
 };
