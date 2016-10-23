@@ -83,20 +83,21 @@ var cf = {
 	},
 
 	plugins: [
-		// HtmlWebpackPlugin: Simplifies creation of HTML files to serve your webpack bundles : https://www.npmjs.com/package/html-webpack-plugin
-		new HtmlWebpackPlugin({
-			inject: true,
-			filename: 'index.html',
-			title: 'MY_CUSTOM_APP',
-			minify: {
-				collapseWhitespace: true,
-				removeComments: true,
-				removeRedundantAttributes: true,
-				removeScriptTypeAttributes: true,
-				removeStyleLinkTypeAttributes: true
-			},
-			template: path.join(libPath, 'index.html')
-		}),
+			new HtmlWebpackPlugin({
+				inject: true,
+				template: path.join(libPath, 'index.ejs'),
+				title: 'My App',
+				cache: false,
+				hash: false,
+				minify: {
+					collapseWhitespace: true,
+					removeComments: true,
+					removeRedundantAttributes: true,
+					removeScriptTypeAttributes: true,
+					removeStyleLinkTypeAttributes: true
+				},
+				chunksSortMode: 'auto'
+			}),
 
 		// Deduplication: find duplicate dependencies & prevents duplicate inclusion : https://github.com/webpack/docs/wiki/optimization#deduplication
 		new webpack.optimize.DedupePlugin(),

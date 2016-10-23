@@ -65,9 +65,11 @@ var cf = {
 	plugins: [
 		new HtmlWebpackPlugin({
 			inject: true,
-			filename: 'index.html',
-			title: 'MY_CUSTOM_APP',
-			template: path.join(libPath, 'index.html')
+			template: path.join(libPath, 'index.ejs'),
+			title: 'My App',
+			cache: false,
+			hash: true,
+			chunksSortMode: 'auto'
 		}),
 
 		new webpack.optimize.OccurenceOrderPlugin(),
