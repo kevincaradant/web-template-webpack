@@ -11,6 +11,8 @@ You just need to kick start your project ? This repo has been made for you !
 - [Sass](http://sass-lang.com/)
 - [Protractor](http://www.protractortest.org/#/)
 - [Karma](http://karma-runner.github.io/)
+- [Jasmine](http://jasmine.github.io/2.5/introduction.html)
+- [Isparta](https://github.com/deepsweet/isparta-loader)
 - [Xo](https://github.com/sindresorhus/xo)
 - [Eslint](http://eslint.org/)
 
@@ -55,7 +57,7 @@ NB: If you want a website in https:
 | ---------- | ------- | ------------------------------------- |
 | NodeJS     | 6.x.x   | [http://node.org](http://nodejs.org/) |
 | Npm        | 3.x.x   | [http://node.org](http://nodejs.org/) |
-| Webpack    | 1.8.x   | `npm install webpack`                 |
+| Webpack    | 1.x.x   | `npm install webpack`                 |
 
 ## Usage
 ### Tasks

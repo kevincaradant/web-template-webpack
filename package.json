@@ -35,8 +35,7 @@
 		"sass",
 		"karma",
 		"material",
-		"isparta",
-		"font-awesome"
+		"isparta"
 	],
 	"author": "Kévin CARADANT <kevin.caradant@gmail.com> (https://caradantkevin.fr/)",
 	"license": "MIT",
@@ -86,10 +85,10 @@
 		"isparta-loader": "2.0.0",
 		"jasmine-core": "2.5.2",
 		"karma": "1.3.0",
-		"karma-jasmine": "1.0.2",
 		"karma-coverage": "1.1.1",
-		"karma-sourcemap-loader": "0.3.7",
+		"karma-jasmine": "1.0.2",
 		"karma-phantomjs-launcher": "1.0.2",
+		"karma-sourcemap-loader": "0.3.7",
 		"karma-spec-reporter": "0.0.26",
 		"karma-webpack": "1.8.0",
 		"less": "2.7.1",
