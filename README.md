@@ -28,21 +28,25 @@ You just need to kick start your project ? This repo has been made for you !
 ## Main librairies into the project :
 - Bootstrap
 - Angular
-	- Angular-mocks
-	- Angular-translate
-	- Angular-sanitize
-	- Angular-bootstrap-material
-	- Angular-bootstrap-material-icons
-	- Angular-animate
-	- Angular-ui-router
+- Angular-mocks
+- Angular-translate
+- Angular-sanitize
+- Angular-bootstrap-material
+- Angular-bootstrap-material-icons
+- Angular-animate
+- Angular-ui-router
 
 # webTemplate-webpack
 A simple AngularJS 1.5 boilerplate using ES6 and components, and webpack
 
 ## Install & run
 ```
-$ npm install --no-optional
-$ npm run dev
+$ yarn install
+----------- OR ------------   
+$ npm install --no-optional   
+
+$ npm run dev   
+
 See the browser on : `http://localhost:3001`
 Or if you prefer to have the App Ready / Compiling status bar at the top
 See the browser on : `http://localhost:3001/webpack-dev-server/`
@@ -57,7 +61,8 @@ NB: If you want a website in https:
 | ---------- | ------- | ------------------------------------- |
 | NodeJS     | 6.x.x   | [http://node.org](http://nodejs.org/) |
 | Npm        | 3.x.x   | [http://node.org](http://nodejs.org/) |
-| Webpack    | 1.x.x   | `npm install webpack`                 |
+| Webpack    | 1.x.x   | `npm install webpack -g`              |
+| Yarn       | 0.x.x   | `npm install yarn -g`                 |
 
 ## Usage
 ### Tasks
