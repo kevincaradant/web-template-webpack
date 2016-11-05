@@ -8,10 +8,10 @@ WatchIgnorePlugin = require('watch-ignore-webpack-plugin'),
 SassLintPlugin = require('sasslint-webpack-plugin');
 
 var cf = {
-	entry: path.join(libPath, 'index.js'),
-
+	entry: {
+		app: path.join(libPath, 'index.js')
+	},
 	devtool: 'source-map',
-
 	resolve: {
 		root: [path.resolve(__dirname, 'lib'), path.resolve(__dirname, 'node_modules')],
 		extensions: ['', '.js', '.json', '.scss']
@@ -29,7 +29,7 @@ var cf = {
 		},{
 			test: /\.html$/,
 			exclude: /node_modules/,
-			loader: 'ngtemplate!html'
+			loader: 'ngtemplate?relativeTo='+__dirname+'/lib/!html'
 		},{
 			test: /\.(jpe?g|gif|png|svg|woff|woff2|ttf|eot|wav|mp3)$/,
 			loader: 'file' // inline base64 URLs for <=10kb images, direct URLs for the rest
@@ -90,7 +90,6 @@ var cf = {
 			],
 			configFile: '.sass-lint.yml'
 		}),
-
 		new ProgressBarPlugin({format: '  build [:bar] ' + (':percent') + ' (:elapsed seconds)'})
 	]
 };
