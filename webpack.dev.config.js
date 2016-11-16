@@ -27,12 +27,12 @@ var cf = {
 			exclude: /node_modules/,
 			loaders: ["raw-loader"]
 		},{
-			test: /\/page1.*\.html$/,
+			test: /[\/\\]page1.*\.html$/,
 			exclude: [ /node_modules/ ],
 			loader: 'html-loader'
 		},{
 			test: /\.html$/,
-			exclude: [ /node_modules/, /\/page1/ ],
+			exclude: [ /node_modules/, /[\/\\]page1/ ],
 			loader: 'ngtemplate?relativeTo='+__dirname+'/lib/!html'
 		},{
 			test: /\.(jpe?g|gif|png|svg|woff|woff2|ttf|eot|wav|mp3)$/,
